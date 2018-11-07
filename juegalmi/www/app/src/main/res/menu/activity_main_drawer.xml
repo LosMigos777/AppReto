@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_juegos"
+            android:icon="@drawable/ic_juegos"
+            android:title="VideoJuegos" />
+        <item
+            android:id="@+id/nav_consolas"
+            android:icon="@drawable/ic_consolas"
+            android:title="Consolas" />
+        <item
+            android:id="@+id/nav_moviles"
+            android:icon="@drawable/ic_moviles"
+            android:title="Moviles" />
+    </group>
+
+    <item android:title="LosMigos">
+        <menu>
+            <item
+                android:id="@+id/nav_servicios"
+                android:icon="@drawable/ic_servicios"
+                android:title="Servicios" />
+            <item
+                android:id="@+id/nav_galeria"
+                android:icon="@drawable/ic_galeria"
+                android:title="Galeria" />
+            <item
+                android:id="@+id/nav_ubicacion"
+                android:icon="@drawable/ic_ubicacion"
+                android:title="Ubicacion" />
+            <item
+                android:id="@+id/nav_informacion"
+                android:icon="@drawable/ic_info"
+                android:title="Informacion" />
+        </menu>
+    </item>
+    <item android:title="Usuario">
+        <menu>
+            <item
+                android:id="@+id/nav_login"
+                android:icon="@drawable/ic_usuario"
+                android:title="Inicio de Sesion" />
+        </menu>
+    </item>
+
+</menu>

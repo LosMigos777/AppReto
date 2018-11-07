@@ -1,0 +1,42 @@
+<ion-side-menus enable-menu-with-back-views="true" style="">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button></ion-nav-back-button>
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="side-menu21"></ion-nav-view>
+  </ion-side-menu-content>
+  <ion-side-menu side="left" id="side-menu21" style="background-color:#886BE8;">
+    <ion-header-bar class="bar-balanced">
+      <div class="title">Juegalmi</div>
+    </ion-header-bar>
+    <ion-content padding="false" class="side-menu-left has-header ">
+      <ion-list id="juegalmi-list1">
+        <ion-item class="item-icon-right royal" id="juegalmi-list-item1" ui-sref="juegalmi.inicio()" menu-close="" style="">Inicio
+          <i class="icon ion-android-home"></i>
+        </ion-item>
+        <ion-item class="item-icon-right royal" id="juegalmi-list-item2" ui-sref="juegalmi.carrito()" menu-close="" style="">Carrito
+          <i class="icon ion-android-cart"></i>
+        </ion-item>
+        <ion-item class="item-icon-right royal" id="juegalmi-list-item4" ui-sref="juegalmi.servicios()" menu-close="" style="">Servicios
+          <i class="icon ion-information-circled"></i>
+        </ion-item>
+        <ion-item class="item-icon-right royal" id="juegalmi-list-item3" ui-sref="juegalmi.localizacion()" menu-close="" style="">Localización
+          <i class="icon ion-ios-location"></i>
+        </ion-item>
+        <ion-item class="item-icon-right royal" id="juegalmi-list-item6" ui-sref="juegalmi.atencionAlCliente()" menu-close="" style="">Atención al cliente
+          <i class="icon ion-android-call"></i>
+        </ion-item>
+      </ion-list>
+      <div class="spacer" style="width: 268px; height: 181px;"></div>
+      <ion-list id="juegalmi-list4">
+        <ion-item class="item-icon-right royal" id="juegalmi-list-item8" ui-sref="juegalmi.miCuenta()" menu-close="" style="">Cuenta
+          <i class="icon ion-android-person"></i>
+          <ion-option-button class="button-assertive">Cerrar sesión</ion-option-button>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>
