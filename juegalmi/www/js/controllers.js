@@ -57,7 +57,7 @@ function ($scope, $stateParams) {
          console.log("exito");
       });
   }
-  });
+  }); 
 //Marselo
   app.run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
