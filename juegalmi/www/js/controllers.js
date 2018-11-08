@@ -44,41 +44,35 @@ function ($scope, $stateParams) {
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
-  (function (){
-
-  var app = angular.module('starter', ['ionic'])
-
-  app.controller('controller', function($scope, $http) {
-
-      $scope.registrar = function(){
-      $http.post("http://localhost/Conexion.php",{
-
-      }).success(function(data){
-         console.log("exito");
-      });
-  }
-  }); 
-//Marselo
-  app.run(function($ionicPlatform) {
-    $ionicPlatform.ready(function() {
-      if(window.cordova && window.cordova.plugins.Keyboard) {
-        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-        cordova.plugins.Keyboard.disableScroll(true);
-      }
-      if(window.StatusBar) {
-        StatusBar.styleDefault();
-      }
-    });
-  })
-  }())
-
+  
 }])
 
-.controller('localizacionCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('localizacionCtrl', ['$scope', '$stateParams', '$ionicLoading', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+function ($scope, $stateParams, $ionicLoading) {
+  google.maps.event.addDomListener(window, 'load', function() {
+          var myLatlng = new google.maps.LatLng(37.3000, -120.4833);
 
+          var mapOptions = {
+              center: myLatlng,
+              zoom: 11,
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+          };
+
+          var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+          navigator.geolocation.getCurrentPosition(function(pos) {
+              map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+              var myLocation = new google.maps.Marker({
+                  position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
+                  map: map,
+                  title: "My Location"
+              });
+          });
+
+          $scope.map = map;
+      });
 
 }])
 

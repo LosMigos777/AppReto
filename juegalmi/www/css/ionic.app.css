@@ -9798,3 +9798,8 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+  #map{
+    height: 100px;
+    width: 100px;
+  }
