@@ -40,10 +40,35 @@ function ($scope, $stateParams) {
 
 }])
 
-.controller('loginCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('loginCtrl', ['$scope', '$stateParams', 'Login',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+  function ($state, $scope, $stateParams, Login) {
+
+    var _this=this;
+
+    this.cliente = {NombreUsuario:"jan", Contrasena:"Almi123"};
+    al = {IdCliente:"", NombreUsuario:"", Contrasena:""};
+
+    $scope.login=function(){
+
+      _this.al = null;
+      Login.getClientes(_this.cliente).then(function(response){
+        al = response.data;
+
+        if(al.length > 0){
+          localStorage.setItem("nombre", al[0].NombreUsuario);
+          localStorage.setItem("password", al[0].Contrasena);
+          localStorage.setItem("id", al[0].IdCliente);
+          console.log("Logueado");
+          $state.go('juegalmi.inicio');
+        }else{
+
+          console.log("No logueado");
+
+        }
+      });
+    }
 
 }])
 

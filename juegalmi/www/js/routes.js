@@ -54,7 +54,8 @@ angular.module('app.routes', [])
   .state('login', {
     url: '/page5',
     templateUrl: 'templates/login.html',
-    controller: 'loginCtrl'
+    controller: 'loginCtrl',
+    controllerAs:'log'
   })
 
   .state('juegalmi.localizacion', {
@@ -99,7 +100,7 @@ angular.module('app.routes', [])
     controller: 'consultarCtrl'
   })
 
-$urlRouterProvider.otherwise('/side-menu21/page1')
+$urlRouterProvider.otherwise('/page5')
 
 
 });
