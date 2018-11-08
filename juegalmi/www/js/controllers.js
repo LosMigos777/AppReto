@@ -52,11 +52,11 @@ function ($scope, $stateParams) {
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams, $ionicLoading) {
     console.log("llega");
-    var myLatlng = new google.maps.LatLng(37.3000, -120.4833);
+    var myLatlng = new google.maps.LatLng(43.2719772, -2.9486153);
 
     var mapOptions = {
         center: myLatlng,
-        zoom: 11,
+        zoom: 18.5,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
