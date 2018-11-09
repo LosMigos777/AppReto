@@ -1,10 +1,12 @@
 angular.module('app.controllers', [])
 
-.controller('inicioCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('inicioCtrl', ['$state', '$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
-
+function ($state, $scope, $stateParams) {
+  if(localStorage.getItem("NombreUsuario") == null){
+        $state.go('login');
+      }
 
 }])
 
@@ -13,6 +15,9 @@ function ($scope, $stateParams) {
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
 
+  if(localStorage.getItem("NombreUsuario") == null){
+        $state.go('login');
+      }
 
 }])
 
@@ -21,6 +26,9 @@ function ($scope, $stateParams) {
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
 
+  if(localStorage.getItem("NombreUsuario") == null){
+        $state.go('login');
+      }
 
 }])
 
@@ -51,45 +59,50 @@ function ($scope, $stateParams, InsertarClientes, $ionicHistory) {
       $ionicHistory.clearHistory();
     });
   };
+
 }])
 
-.controller('loginCtrl', ['$scope', '$stateParams', 'Login',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('loginCtrl', ['$state', '$scope', '$stateParams', 'Login',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
   function ($state, $scope, $stateParams, Login) {
 
     var _this=this;
 
-    this.cliente = {NombreUsuario:"jan", Contrasena:"Almi123"};
+    this.cliente = {NombreUsuario:"", Contrasena:""};
     al = {IdCliente:"", NombreUsuario:"", Contrasena:""};
 
-    $scope.login=function(){
+    this.login=function(){
 
       _this.al = null;
       Login.getClientes(_this.cliente).then(function(response){
-        al = response.data;
+      al = response.data;
 
         if(al.length > 0){
-          localStorage.setItem("nombre", al[0].NombreUsuario);
-          localStorage.setItem("password", al[0].Contrasena);
-          localStorage.setItem("id", al[0].IdCliente);
+
+          localStorage.setItem("NombreUsuario", al[0].nombreusuario);
+          localStorage.setItem("Contrasena", al[0].contrasena);
+          localStorage.setItem("IdCliente", al[0].idcliente);
           console.log("Logueado");
           $state.go('juegalmi.inicio');
         }else{
-
           console.log("No logueado");
-
         }
-      });
-    }
 
+      });
+
+    };
 }])
 
 .controller('localizacionCtrl', ['$scope', '$stateParams', '$ionicLoading', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams, $ionicLoading) {
-    console.log("llega");
+
+  if(localStorage.getItem("NombreUsuario") == null){
+        $state.go('login');
+      }
+
     var myLatlng = new google.maps.LatLng(43.2719772, -2.9486153);
 
     var mapOptions = {
@@ -117,6 +130,9 @@ function ($scope, $stateParams, $ionicLoading) {
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
 
+  if(localStorage.getItem("NombreUsuario") == null){
+        $state.go('login');
+      }
 
 }])
 
@@ -125,6 +141,9 @@ function ($scope, $stateParams) {
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
 
+  if(localStorage.getItem("NombreUsuario") == null){
+        $state.go('login');
+      }
 
 }])
 
@@ -133,6 +152,9 @@ function ($scope, $stateParams) {
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
 
+  if(localStorage.getItem("NombreUsuario") == null){
+        $state.go('login');
+      }
 
 }])
 
@@ -141,5 +163,8 @@ function ($scope, $stateParams) {
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
 
+  if(localStorage.getItem("NombreUsuario") == null){
+        $state.go('login');
+      }
 
 }])
