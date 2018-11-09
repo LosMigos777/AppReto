@@ -32,12 +32,25 @@ function ($scope, $stateParams) {
 
 }])
 
-.controller('signupCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('signupCtrl', ['$scope', '$stateParams', 'InsertarClientes', '$ionicHistory',
+// The following is the constructor function for this page's controller. See https:
+//docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
-
-
+function ($scope, $stateParams, InsertarClientes, $ionicHistory) {
+  //creamos modelo
+  $scope.cliente={Nombre:null,Apellido:null,FechaNacimiento:null,Provincia:"",NombreUsuario:null,Contrasena:"",Email:""};
+  //llamar a ala function
+  $scope.registrar = function(){
+    var usu={ Nombre:$scope.cliente.Nombre, Apellido:$scope.cliente.Apellido, FechaNacimiento:$scope.cliente.FechaNacimiento, Provincia:$scope.cliente.Provincia, NombreUsuario:$scope.cliente.NombreUsuario, Contrasena:$scope.cliente.Contrasena, Email:$scope.cliente.Email };
+    InsertarClientes.insertarClientes(usu).then(function(response){
+      //xontrolamos el refresco de pantalla
+      $ionicHistory.nextViewOptions({ disableBack:true, disableAnimate:true });
+      console.log(response);
+      $ionicHistory.clearCache();
+      $ionicHistory.clearHistory();
+    });
+  };
 }])
 
 .controller('loginCtrl', ['$scope', '$stateParams', 'Login',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller

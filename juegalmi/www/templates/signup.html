@@ -3,19 +3,20 @@
     <form id="signup-form1" class="list">
       <ion-list id="signup-list2">
         <label class="item item-input" id="signup-input1">
-          <span class="input-label">Name</span>
-          <input type="text" placeholder="">
-        </label>
-        <label class="item item-input" id="signup-input2">
+          <span class="input-label">Nombre de usuario</span>
+          <input type="text" placeholder="" ng-model="cliente.NombreUsuario">
+        </label> <label class="item item-input" id="signup-input1">
+          <span class="input-label">Provincia</span>
+          <input type="text" placeholder="" ng-model="cliente.Provincia">
+        </label> <label class="item item-input" id="signup-input2">
           <span class="input-label">Email</span>
-          <input type="email" placeholder="">
-        </label>
-        <label class="item item-input" id="signup-input3">
-          <span class="input-label">Password</span>
-          <input type="text" placeholder="">
-        </label>
-      </ion-list>
-      <button id="signup-button1" class="button button-balanced button-block">Sign up</button>
-    </form>
-  </ion-content>
-</ion-view>
+          <input type="email" placeholder="" ng-model="cliente.Email">
+         </label> <label class="item item-input" id="signup-input3">
+            <span class="input-label">Contraseña</span>
+            <input type="password" placeholder="" ng-model="cliente.Contrasena">
+          </label>
+         </ion-list>
+         <button id="signup-button1" class="button button-balanced button-block" ng-click="registrar()">Sign up</button>
+       </form>
+     </ion-content>
+   </ion-view>
